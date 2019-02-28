@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::prefix('video')->group(function () {
+	Route::get('config', 'YoutubeApiController@index')->name('video.config');
+	Route::post('config/save', 'YoutubeApiController@update')->name('video.config.save');
+});
